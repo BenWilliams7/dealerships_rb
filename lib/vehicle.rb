@@ -1,10 +1,11 @@
 class Vehicle
   @@vehicles = []
 
-  define_method(:initialize) do |make, model, year|
+  define_method(:initialize) do |make, model, year, color|
     @make = make
     @model = model
     @year = year
+    @color = color
     @id = @@vehicles.length().+(1)
   end
 
@@ -22,6 +23,9 @@ class Vehicle
 
   define_method(:year) do
     @year
+  end
+  define_method(:color) do
+    @color
   end
 
   define_singleton_method(:all) do

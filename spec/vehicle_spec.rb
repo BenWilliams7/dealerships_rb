@@ -8,21 +8,21 @@ describe(Vehicle) do
 
   describe("#make") do
     it("returns the make of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       expect(test_vehicle.make()).to(eq("Toyota"))
     end
   end
 
   describe("#model") do
     it("returns the model of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       expect(test_vehicle.model()).to(eq("Prius"))
     end
   end
 
   describe("#year") do
     it("returns the year of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       expect(test_vehicle.year()).to(eq(2000))
     end
   end
@@ -35,7 +35,7 @@ describe(Vehicle) do
 
   describe("#save") do
     it("adds a vehicle to the array of saved vehicles") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       test_vehicle.save()
       expect(Vehicle.all()).to(eq([test_vehicle]))
     end
@@ -43,7 +43,7 @@ describe(Vehicle) do
 
   describe(".clear") do
     it("empties out all of the saved vehicles") do
-      Vehicle.new("Toyota", "Prius", 2000).save()
+      Vehicle.new("Toyota", "Prius", 2000, "Black").save()
       Vehicle.clear()
       expect(Vehicle.all()).to(eq([]))
     end
@@ -51,34 +51,34 @@ describe(Vehicle) do
 
   describe("#age") do
     it("returns the vehicles age") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       expect(test_vehicle.age()).to(eq(17))
     end
   end
   describe("#worth_buying?") do
     it("returns false if the vehicle is not american made and younger than 16 years old") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       expect(test_vehicle.worth_buying?()).to(eq(false))
     end
   end
   describe("#worth_buying?") do
     it("returns false if the vehicle is not american made and younger than 16 years old") do
-      test_vehicle = Vehicle.new("Chrysler", "Saturn", 2010)
+      test_vehicle = Vehicle.new("Chrysler", "Pacifica", 2010, "Black")
       expect(test_vehicle.worth_buying?()).to(eq(true))
     end
   end
   describe("#id") do
     it("returns the id of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
       test_vehicle.save()
       expect(test_vehicle.id()).to(eq(1))
     end
   end
   describe(".find") do
   it("returns a vehicle by its id number") do
-    test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+    test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "Black")
     test_vehicle.save()
-    test_vehicle2 = Vehicle.new("Toyota", "Corolla", 1999)
+    test_vehicle2 = Vehicle.new("Toyota", "Corolla", 1999, "Black")
     test_vehicle2.save()
     expect(Vehicle.find(test_vehicle.id())).to(eq(test_vehicle))
   end

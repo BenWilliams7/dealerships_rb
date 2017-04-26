@@ -3,8 +3,8 @@
 <h3>Here are all the vehicles: </h3>
 <ul>
   <% @vehicles.each() do |vehicle| %>
-    <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.model() %></a></li>
+    <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.make() %> <%= vehicle.model() %> <%= vehicle.year() %></a></li>
   <% end %>
 </ul>
 <a href="/">Home</a>
-<a href="/dealerships">Dealership List</a>
+<a href="/dealershipshome">Dealership List</a>
