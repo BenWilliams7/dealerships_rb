@@ -9,6 +9,6 @@ describe('paths for dealership', {:type => :feature}) do
     visit('/dealerships/new')
     fill_in('name', :with => 'ruby')
     click_button('Add Dealership')
-    expect(page).to have_content('Add')
+    page.has_xpath?('/dealerships')
   end
 end

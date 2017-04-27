@@ -1,11 +1,13 @@
 class Vehicle
   @@vehicles = []
 
-  define_method(:initialize) do |make, model, year, color|
-    @make = make
-    @model = model
-    @year = year
-    @color = color
+  attr_reader(:make, :model, :year, :color)
+
+  define_method(:initialize) do |attributes|
+    @make = attributes.fetch(:make)
+    @model = attributes.fetch(:model)
+    @year = attributes.fetch(:year)
+    @color = attributes.fetch(:color)
     @id = @@vehicles.length().+(1)
   end
 
@@ -13,20 +15,20 @@ class Vehicle
     @id
   end
 
-  define_method(:make) do
-    @make
-  end
-
-  define_method(:model) do
-    @model
-  end
-
-  define_method(:year) do
-    @year
-  end
-  define_method(:color) do
-    @color
-  end
+  # define_method(:make) do
+  #   @make
+  # end
+  #
+  # define_method(:model) do
+  #   @model
+  # end
+  #
+  # define_method(:year) do
+  #   @year
+  # end
+  # define_method(:color) do
+  #   @color
+  # end
 
   define_singleton_method(:all) do
     @@vehicles
